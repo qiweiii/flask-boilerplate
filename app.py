@@ -46,6 +46,28 @@ def home():
     return render_template('pages/placeholder.home.html')
 
 
+@app.route('/user/john')
+def john():
+    user_john = {
+        "avatar": "https://www.svgrepo.com/show/8137/avatar.svg",
+        "name": "John",
+        "interests": "HAHA",
+        "icebreaker": "I'm a HAHAFAN. I HAHA everyday. I have a infinity life. You need to learn one thing or two."
+    }
+    return render_template('pages/user_profile.html', user=user_john)
+
+
+@app.route('/user/jane')
+def jane():
+    user_jane = {
+        "avatar": "https://www.svgrepo.com/show/8137/avatar.svg",
+        "name": "Jane",
+        "interests": "DADADADA",
+        "icebreaker": "I'm a DADAFAN. I DADA everyday. I DADA when thonking. I like thonking while DADing."
+    }
+    return render_template('pages/user_profile.html', user=user_jane)
+
+
 @app.route('/about')
 def about():
     return render_template('pages/placeholder.about.html')
