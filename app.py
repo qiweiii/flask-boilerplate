@@ -2,7 +2,7 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 # from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
@@ -45,14 +45,27 @@ def login_required(test):
 def home():
     return render_template('pages/placeholder.home.html')
 
+
 @app.route('/match_list')
 def match_list():
     return render_template('pages/match_list.html')
 
+
+@app.route('/profile')
+def profile():
+    user = {
+        "avatar": url_for('static', filename='img/user.svg'),
+        "name": "ME!ME!ME!",
+        "interests": "ME!ME!ME!",
+        "icebreaker": "this is a boring icebreaker"
+    }
+    return render_template('pages/my_profile.html', user=user)
+
+
 @app.route('/user/john')
 def john():
     user_john = {
-        "avatar": "https://www.svgrepo.com/show/8137/avatar.svg",
+        "avatar": url_for('static', filename='img/john.svg'),
         "name": "John",
         "interests": "HAHA",
         "icebreaker": "I'm a HAHAFAN. I HAHA everyday. I have a infinity life. You need to learn one thing or two."
@@ -63,7 +76,7 @@ def john():
 @app.route('/user/jane')
 def jane():
     user_jane = {
-        "avatar": "https://www.svgrepo.com/show/8137/avatar.svg",
+        "avatar": url_for('static', filename='img/jane.svg'),
         "name": "Jane",
         "interests": "DADADADA",
         "icebreaker": "I'm a DADAFAN. I DADA everyday. I DADA when thonking. I like thonking while DADing."
