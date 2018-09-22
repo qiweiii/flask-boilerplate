@@ -49,6 +49,10 @@ def home():
 def match_list():
     return render_template('pages/match_list.html')
 
+@app.route('/matches')
+def matches():
+    return render_template('pages/matches.html')
+
 @app.route('/user/john')
 def john():
     user_john = {
