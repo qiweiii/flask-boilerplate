@@ -2,12 +2,17 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 
+<script>
+    //(function funcc() {
+    //    $("#matching").hide();
+    //})();
+    function func() {
+        $("#matching").show();
+    }
+</script>
 
-<div class="container" style="border-bottom:1px solid #ddd; padding-top: 50px;
-    padding-right: 100px;
-    padding-bottom: 50px;
-    padding-left: 80px;">
-    <form>
+<div class="container" style="border-bottom:1px solid #ddd; padding: 50px;">
+    <!--<form method = "POST">-->
       <div class="form-group">
         <label>Where to?</label>
         <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter your destination">
@@ -24,9 +29,24 @@
         <label>Start Time</label>
         <input type="time" class="form-control mb-2 mr-sm-2" name="start_time">
       </div>
-      <a href="{{ url_for('match_list') }}" class="btn btn-primary">Match!</a>
-    </form>
+      <button name="isMatching" class="btn btn-primary" onclick="func()">Match!</button>
+    <!-- </form> -->
 </div>
 
+
+<div id="matching" style="display:none;">
+<div>
+<h1>Matching...</h1>
+</div>
+
+<div class="list-group" style="padding: 50px">
+<a href="{{ url_for('jane') }}" class="list-group-item">Jane
+  <input class="btn btn-sm btn-info" type="button" value="Send request" disabled="disabled" style="float: right; padding: 1px">
+</a>
+<a href="{{ url_for('john') }}" class="list-group-item">John
+  <input class="btn btn-sm btn-info" type="button" value="Send request" disabled="disabled" style="float: right; padding: 1px">
+</a>
+</div>
+</div>
 
 {% endblock %}
