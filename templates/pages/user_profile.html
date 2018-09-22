@@ -1,0 +1,33 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<div class="page-header">
+  <h1>User Profile</h1>
+</div>
+
+<div>
+  <div class="avatar" style="margin-left:auto; margin-right:auto; width:40%; display:block;">
+    <img class="img-responsive" src="{{ user.avatar }}" alt="{{ user.name }}"></img>
+    <div class="name" style="font-size: 2em; padding-top:1em; padding-bottom:1em; text-align:center;">{{ user.name }}</div>
+  </div>
+  <div class="intro" style="margin-left:auto; margin-right:auto; width:60%; display:block;">
+    <table class="table table_hover">
+      <tr>
+        <td>Icebreaker</td>
+        <td>{{ user.icebreaker }}</td>
+      </tr>
+      <tr>
+        <td>Interests</td>
+        <td>{{ user.interests }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="operations" style="margin-left:auto; margin-right: auto; width: 15%;">
+  <button class="btn btn-primary" type="button" value="trip">Trip</button>
+  <button class="btn btn-danger" type="button" value="report">Report</button>
+</div>
+
+{% endblock %}
