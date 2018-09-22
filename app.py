@@ -45,6 +45,9 @@ def login_required(test):
 def home():
     return render_template('pages/placeholder.home.html')
 
+@app.route('/match_list')
+def match_list():
+    return render_template('pages/match_list.html')
 
 @app.route('/about')
 def about():
